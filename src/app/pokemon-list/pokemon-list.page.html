@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Liste des Pokémons</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<!-- <h2>Nouveau pokémon</h2> -->
+<!-- <ion-button routerLink="/pokemon-list/pokemon-new">Nouveau Pokemon</ion-button> -->
+<h1 style="text-align: center;">Liste des Pokémons</h1>
+<ion-input style="border: 1px solid white;" type="text"  placeholder="Rechercher un pokémon" [(ngModel)]="pokeSearch"></ion-input>
+
+<ion-button style="color: #fff; margin-left: 20%;" class="btn btn-warning margin-auto" routerLinkActive="active" routerLink="../pokemon-new">Ajouter un pokémon</ion-button>
+
+<ul class="bg-volume" *ngIf="pokemons">
+    <!-- <app-pokemons *ngFor="let pokemon of getFilteredPokemons()"
+    
+    [pokemon]="pokemon.name"
+    [type]="pokemon.type"
+    [id]="pokemon.id"
+    [url]="pokemon.url">
+    
+    
+
+    </app-pokemons> -->
+<ion-grid>
+  <ion-row>
+    <ion-col style="left: 16%;" size="7" *ngFor="let pokemon of getFilteredPokemons()">
+      <ion-card aria-setsize="2" [id]="pokemon.id">
+    <!-- [pokemon]="pokemon.name"
+    [type]="pokemon.type"
+    [id]="pokemon.id"
+    [url]="pokemon.url" -->
+    <!-- {{pokemon.name}}
+    {{pokemon.type}} -->
+
+    <div class="bg-unVolume">
+      <h5><img [src]="pokemon.url"> {{ pokemon.name }}, type : {{ pokemon.type }}
+  
+      <div style="float: left; margin-top: 5%;">   
+  <ion-button style="color: #fff; margin-right: 10px; margin-left: 10px;" class="btn btn-warning margin-auto" routerLinkActive="active" [routerLink]="['../', pokemon.id]">Modifier</ion-button>
+          
+  <ion-button class="btn btn-danger margin-auto" (click)="supprimer(pokemon.id)">Supprimer</ion-button>
+  </div>
+  </h5>
+  
+  </div>
+  
+    
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+    
+</ul>
+</ion-content>

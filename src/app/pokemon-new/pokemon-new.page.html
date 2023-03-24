@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ajouter un Pokémon</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1 style="text-align: center;">Ajouter un Pokémon</h1>
+
+  <div class="bg-volume">
+      <div class="bg-unVolume">
+      <ion-label for="">Nom du pokémon :</ion-label>
+      <ion-input style="border: 1px solid white;" type="text" class="" [(ngModel)]="pokemon.name"></ion-input>
+      </div>
+      <div class="bg-unVolume">
+      <ion-label for="">Type du pokémon :</ion-label>
+      <ion-input style="border: 1px solid white;" type="text" class="" [(ngModel)]="pokemon.type"></ion-input>
+      </div>
+      <div class="bg-unVolume">
+          <ion-label for="">URL du pokémon :</ion-label>
+          <ion-input style="border: 1px solid white;" type="text" class="" [(ngModel)]="pokemon.url"></ion-input>
+      </div>
+      <div >
+      <ion-button style="margin-left: 35%; margin-top: 2%;" class="btn btn-outline-success valider" (click)="add()">Ajouter</ion-button>
+      </div>
+  </div>
+  
+  
+  
+  
+  <!-- <div class="row change" *ngIf="change">
+  <div class="col-12">Les changements ont bien été enregistrés</div>
+  </div> -->
+</ion-content>
